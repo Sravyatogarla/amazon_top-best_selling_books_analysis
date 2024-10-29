@@ -1,1 +1,107 @@
+import pandas as pd
+import numpy as np
+#importing the csv file
+data = pd.read_csv("bestsellers with categories.csv")
+print(data)
 
+
+#taking the top5 rows
+df.head()
+
+#taking the last5 rows
+df.tail()
+
+#finding the data type of the csv file
+print(type("df"))
+
+#displaying the data types of each column 
+print(df.dtypes)
+
+#showing given columns
+df.columns
+#finding the shape of the data
+df.shape
+
+#stastical calculations of data
+df.describe()
+
+#finding the information of data
+df.info()
+
+#to find of is their any null values in columns
+df.isnull().any()
+
+df.mode()
+
+#finding out the books with highest review
+highest_reviews = df["Reviews"].max()
+print("the highest Reviews score is: ", highest_reviews)
+highest_review_row = df.loc[df["Reviews"].idxmax()]
+print("\nDetails of the Book with the highest review: \n", highest_review_row)
+
+#finding out the books with lowest review
+lowest_reviews = df["Reviews"].min()
+print("the lowest Reviews score is: ", lowest_reviews)
+lowest_review_row = df.loc[df["Reviews"].idxmin()]
+print("\nDetails of the Book with the lowest review: \n", lowest_review_row)
+
+#to find out the number of Fictional, non-fictional books
+fiction_count = len(df[df['Genre'] == 'Fiction'])
+non_fiction_count= len(df[df['Genre'] == 'Non Fiction'])
+#print the number of books of fictional, non fictional
+print("Number of fictional books:", fiction_count)
+print("Number of Non-fictional books:", non_fiction_count)
+
+#finding the genre count 
+genre_counts=df["Genre"].value_counts()
+print(genre_counts)
+
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,6))
+genre_counts.plot(kind='bar', color='skyblue')
+plt.title("Book Genre Distribution")
+plt.xlabel('Genre')
+plt.ylabel('Number of Books')
+plt.xticks(rotation=45)
+plt.show()
+
+# Create a line chart to visualize the book publication trend over time
+import pandas as pd
+data = pd.read_csv("bestsellers with categories.csv")
+df= pd.DataFrame(data)
+#group the data by year and count the number of books published ear year
+year_counts = df["Year"].value_counts()
+import matplotlib.pyplot as plt
+plt.figure(figsize=(12, 6))
+year_counts.plot(kind='line', color='green', marker='o')
+plt.title('Book Publication Trend Over Time')
+plt.xlabel('Year')
+plt.ylabel('Number of Books')
+plt.grid(True)
+plt.show()
+
+import pandas as pd
+data = pd.read_csv("bestsellers with categories.csv")
+df= pd.DataFrame(data)
+
+#bar chart to visualize the book publication trend over time
+
+plt.figure(figsize=(10, 6))
+year_counts.plot(kind='bar', color='royalblue')
+plt.title('Book Publication Trend Over Time')
+plt.xlabel('Year')
+plt.ylabel('Number of Books')
+plt.xticks(rotation=0) 
+# Rotate x-axis labels for better readability
+plt.grid(axis='y', linestyle='--', alpha=0.7) 
+# Add grid lines for better visualization
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_csv("bestsellers with categories.csv")
+df= pd.DataFrame(data)
+plt.figure(figsize=(16,4))
+sns.countplot(x='Year', data=data, hue='Genre', palette='colorblind')
+plt.show()
