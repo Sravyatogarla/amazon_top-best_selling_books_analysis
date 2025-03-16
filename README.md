@@ -42,6 +42,7 @@ Genre	Fiction or Non-Fiction
 📌 Certain authors consistently appear in the bestseller list 🎯
 
 🛠 Installation & Setup
+
 1️⃣ Clone the repository:
 
 bash
@@ -49,12 +50,14 @@ Copy
 Edit
 git clone https://github.com/your-repo/amazon-bestselling-books-analysis.git  
 cd amazon-bestselling-books-analysis
+
 2️⃣ Install dependencies:
 
 bash
 Copy
 Edit
 pip install -r requirements.txt  
+
 3️⃣ Run the Jupyter Notebook:
 
 bash
